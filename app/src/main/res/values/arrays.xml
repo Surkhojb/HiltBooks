@@ -1,0 +1,30 @@
+<resources>
+    <string-array name="search_entries">
+        <item>Default 0</item>
+        <item>10 items per search</item>
+        <item>20 items per search</item>
+        <item>30 items per search</item>
+        <item>40 items per search</item>
+    </string-array>
+
+    <string-array name="items_search">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="order_by_entries">
+        <item>Default order</item>
+        <item>Order by newest</item>
+        <item>Order by relevance</item>
+    </string-array>
+
+    <string-array name="items_order_by">
+        <item></item>
+        <item>newest</item>
+        <item>relevance</item>
+    </string-array>
+
+</resources>

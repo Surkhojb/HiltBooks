@@ -8,5 +8,6 @@ interface BooksApi {
     @GET("volumes")
     suspend fun getBooksBySearch(
         @Query("q") searchQuery: String,
-        @Query("startIndex") index: Int = 0): BookResponse
+        @Query("maxResult") maxResult: Int? = 0,
+        @Query("orderBy") orderBy: String): BookResponse
 }

@@ -1,0 +1,25 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="@string/search_header">
+        <ListPreference
+            app:defaultValue="10"
+            app:entries="@array/search_entries"
+            app:entryValues="@array/items_search"
+            app:key="num_results"
+            app:title="@string/search_max_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:entryValues="@array/items_order_by"
+            app:entries="@array/order_by_entries"
+            app:key="order_by"
+            app:title="@string/order_by_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:key="offline"
+            app:title="Enable offline mode"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

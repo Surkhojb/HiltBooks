@@ -12,6 +12,9 @@ public interface BooksDao {
     @Query("SELECT * FROM books")
     fun getBooks(): List<Book>
 
+    @Query("SELECT COUNT(*) FROM books")
+    fun hasBooksCached(): Int
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveBooks(books: List<Book>)
 }

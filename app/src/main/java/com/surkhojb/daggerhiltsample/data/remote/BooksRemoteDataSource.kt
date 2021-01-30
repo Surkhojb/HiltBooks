@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class BooksRemoteDataSource @Inject constructor(val booksApi: BooksApi) {
 
-    suspend fun getBooksBySearch(query: String) = withContext(Dispatchers.IO){
-        booksApi.getBooksBySearch(query)
+    suspend fun getBooksBySearch(query: String, maxResult: Int? = 0,orderBy: String) = withContext(Dispatchers.IO){
+        booksApi.getBooksBySearch(query,maxResult,orderBy)
     }
 }

@@ -67,4 +67,29 @@ class BooksMapper @Inject constructor() {
         previewLink = item.volumeInfo.previewLink ?: "",
         infoLink = item.volumeInfo.infoLink ?: "",
         canonicalVolumeLink = item.volumeInfo.canonicalVolumeLink ?: "")
+
+    fun remoteBooksToModel(bookResponse: BookRemote): Books {
+        val list = Books()
+
+        bookResponse.items.forEach {
+            list.books.add(mapToBookInfo(it))
+        }
+
+        return list
+    }
+
+    private fun mapToBookInfo(item: Item) = BookInfo(
+        title = item.volumeInfo.title ?: "",
+        subtitle = item.volumeInfo.subtitle ?: "",
+        authors = item.volumeInfo.authors ?: emptyList(),
+        publisher = item.volumeInfo.publisher ?: "",
+        publishedDate = item.volumeInfo.publishedDate ?: "",
+        description = item.volumeInfo.description ?: "",
+        pageCount = item.volumeInfo.pageCount ?: 0,
+        categories = item.volumeInfo.categories ?: emptyList(),
+        thumbnail = item.volumeInfo.imageLinks?.thumbnail ?: "",
+        smallThumbnail = item.volumeInfo.imageLinks?.smallThumbnail ?: "",
+        previewLink = item.volumeInfo.previewLink ?: "",
+        infoLink = item.volumeInfo.infoLink ?: "",
+        canonicalVolumeLink = item.volumeInfo.canonicalVolumeLink ?: "")
 }

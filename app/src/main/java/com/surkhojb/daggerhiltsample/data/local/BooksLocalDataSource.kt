@@ -15,4 +15,8 @@ class BooksLocalDataSource @Inject constructor(val booksDao: BooksDao) {
     suspend fun cacheBooks(books: List<Book>) = withContext(Dispatchers.IO){
         booksDao.saveBooks(books)
     }
+
+    suspend fun hasBooksCached(): Boolean = withContext(Dispatchers.IO) {
+        booksDao.hasBooksCached() > 0
+    }
 }

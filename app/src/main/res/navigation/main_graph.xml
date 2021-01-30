@@ -10,4 +10,9 @@
         android:name="com.surkhojb.daggerhiltsample.features.list_books.ListFragment"
         android:label="list_fragment"
         tools:layout="@layout/list_fragment" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.surkhojb.daggerhiltsample.features.settings.SettingsFragment"
+        android:label="settings_fragment"/>
 </navigation>

@@ -1,10 +1,13 @@
 package com.surkhojb.daggerhiltsample.di
 
 import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.surkhojb.daggerhiltsample.data.local.db.BooksDatabase
 import com.surkhojb.daggerhiltsample.data.remote.BooksApi
+import com.surkhojb.daggerhiltsample.data.settings.SettingsDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +24,10 @@ import javax.inject.Singleton
 object AppModule {
     private const val BASE_URL = "https://books.googleapis.com/books/v1/"
     private const val DATABASE = "books_db"
+    private const val SETTINGS = "sample_preferences"
+
+    @Provides
+    fun providesAppContext(@ApplicationContext context: Context) = context
 
     @Provides
     @Singleton
@@ -52,5 +59,13 @@ object AppModule {
     @Provides
     @Singleton
     fun providesBooksDao(database: BooksDatabase) = database.booksDao()
+
+    @Provides
+    @Singleton
+    fun providesPreferences(@ApplicationContext context: Context) = PreferenceManager.getDefaultSharedPreferences(context)
+
+    @Provides
+    @Singleton
+    fun providesSettingsDatasource(sharedPreferences: SharedPreferences) = SettingsDataSource(sharedPreferences)
 
 }

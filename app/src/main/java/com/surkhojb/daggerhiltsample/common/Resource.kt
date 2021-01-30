@@ -3,6 +3,7 @@ package com.surkhojb.daggerhiltsample.common
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
+import java.net.UnknownHostException
 
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
     companion object {
@@ -28,6 +29,7 @@ private fun handleError(exception: Exception): String {
     return when(exception){
         is HttpException -> handleHttpError(exception.code())
         is IOException -> "Error: ${exception.localizedMessage}"
+        is UnknownHostException -> "Error: Check your internet connection"
         else -> exception.localizedMessage
     }
 }
