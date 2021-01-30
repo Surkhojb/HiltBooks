@@ -7,45 +7,49 @@
     android:background="@color/light_background"
     tools:context=".features.list_books.ListFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/list_toolbar"
+    <androidx.cardview.widget.CardView
+        android:background="@color/white"
+        android:id="@+id/cv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:foregroundGravity="bottom"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:background="@color/white"
-            android:id="@+id/cv_search"
+        <SearchView
+            android:id="@+id/search_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:foregroundGravity="bottom"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="12dp">
-
-            <SearchView
-                android:id="@+id/search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:iconifiedByDefault="false"
-                android:queryHint="Find a book"
-                />
-        </androidx.cardview.widget.CardView>
-
-    </androidx.appcompat.widget.Toolbar>
+            android:iconifiedByDefault="false"
+            android:queryHint="Find a book"
+            />
+    </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_toolbar"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
         app:spanCount="3"
-        tools:listitem="@layout/row_book_item"/>
+        tools:listitem="@layout/row_book_item" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cv_search"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

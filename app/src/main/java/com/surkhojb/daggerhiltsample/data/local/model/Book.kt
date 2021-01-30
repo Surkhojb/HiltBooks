@@ -8,9 +8,9 @@ import com.surkhojb.daggerhiltsample.data.local.db.ListStringTypeConverter
 
 @Entity(tableName = "books")
 data class Book(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    val id: String,
     @ColumnInfo(name = "title")
     val title : String,
     @ColumnInfo(name = "subtitle")

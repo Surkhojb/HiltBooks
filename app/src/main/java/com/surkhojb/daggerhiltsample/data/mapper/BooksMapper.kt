@@ -48,6 +48,7 @@ class BooksMapper @Inject constructor() {
     }
 
     private fun map(item: Item) = BookDb(
+        id = item.id,
         title = item.volumeInfo.title ?: "",
         subtitle = item.volumeInfo.subtitle ?: "",
         authors = item.volumeInfo.authors ?: emptyList(),
