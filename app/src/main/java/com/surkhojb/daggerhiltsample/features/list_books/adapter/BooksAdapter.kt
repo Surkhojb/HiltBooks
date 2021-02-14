@@ -13,7 +13,7 @@ import com.surkhojb.daggerhiltsample.common.loadUrl
 import com.surkhojb.daggerhiltsample.features.list_books.adapter.BooksAdapter.BookInfoViewHolder
 import com.surkhojb.daggerhiltsample.model.BookInfo
 
-class BooksAdapter: ListAdapter<BookInfo, BookInfoViewHolder>(BookInfoDiffUtilCallback()) {
+class BooksAdapter(val navigateToDetail: (BookInfo) -> Unit ): ListAdapter<BookInfo, BookInfoViewHolder>(BookInfoDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookInfoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.row_book_item,parent,false)
@@ -24,7 +24,7 @@ class BooksAdapter: ListAdapter<BookInfo, BookInfoViewHolder>(BookInfoDiffUtilCa
         holder.bind(getItem(position))
     }
 
-    class BookInfoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class BookInfoViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val cover: ImageView = itemView.findViewById(R.id.cover_book)
         private val title: TextView = itemView.findViewById(R.id.title_book)
         private val author: TextView = itemView.findViewById(R.id.author_book)
@@ -33,6 +33,7 @@ class BooksAdapter: ListAdapter<BookInfo, BookInfoViewHolder>(BookInfoDiffUtilCa
             cover.loadUrl(item.thumbnail)
             title.text = item.title
             author.text = item.authors.firstOrNull() ?: "-"
+            itemView.setOnClickListener { navigateToDetail.invoke(item) }
         }
     }
 

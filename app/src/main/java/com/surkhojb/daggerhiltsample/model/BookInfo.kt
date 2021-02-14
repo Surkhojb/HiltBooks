@@ -1,6 +1,9 @@
 package com.surkhojb.daggerhiltsample.model
 
+import java.io.Serializable
+
 data class BookInfo(
+    var volumeId: String,
     var title : String,
     var subtitle : String,
     var authors : List<String>,
@@ -14,8 +17,9 @@ data class BookInfo(
     var previewLink : String,
     var infoLink : String,
     var canonicalVolumeLink : String
-){
+): Serializable{
    constructor(): this(
+       "",
        "",
        "",
        emptyList(),

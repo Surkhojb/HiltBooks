@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DaggerHiltSample</string>
+    <string name="app_name">Hilt Books</string>
     <!-- Preference Titles -->
     <string name="search_header">Search options</string>
     <string name="sync_header">Sync</string>
@@ -8,4 +8,12 @@
     <string name="search_max_title">Max results</string>
     <string name="order_by_title">Items order</string>
     <string name="menu_settings_title">Settings</string>
+
+    <string name="detail_author">Author: %s</string>
+    <string name="detail_pages">Pages: %s</string>
+    <string name="detail_publisher">Publisher: %s</string>
+    <string name="detail_published">Published: %s</string>
+    <string name="preview_link">https://play.google.com/books/reader?id=%s&amp;pg=GBS.PA2&amp;hl=es</string>
+    <string name="detail_go_to_store">go to play store</string>
+    <string name="detail_go_to_preview">go to preview</string>
 </resources>

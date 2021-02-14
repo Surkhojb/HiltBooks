@@ -15,6 +15,7 @@ data class Item (
 )
 
 data class VolumeInfo (
+    val volulmeId: String?,
     val title : String?,
     val subtitle : String?,
     val authors : List<String>?,

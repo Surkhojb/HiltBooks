@@ -20,6 +20,7 @@ class BooksMapper @Inject constructor() {
 
     private fun map(bookDb: BookDb): BookInfo {
         return BookInfo().apply {
+            this.volumeId = bookDb.id
             this.title = bookDb.title
             this.subtitle = bookDb.subtitle
             this.authors = bookDb.authors
@@ -79,6 +80,7 @@ class BooksMapper @Inject constructor() {
     }
 
     private fun mapToBookInfo(item: Item) = BookInfo(
+        volumeId = item.id ?: "",
         title = item.volumeInfo.title ?: "",
         subtitle = item.volumeInfo.subtitle ?: "",
         authors = item.volumeInfo.authors ?: emptyList(),

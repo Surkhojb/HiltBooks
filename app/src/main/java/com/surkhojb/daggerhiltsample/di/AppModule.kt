@@ -24,7 +24,6 @@ import javax.inject.Singleton
 object AppModule {
     private const val BASE_URL = "https://books.googleapis.com/books/v1/"
     private const val DATABASE = "books_db"
-    private const val SETTINGS = "sample_preferences"
 
     @Provides
     fun providesAppContext(@ApplicationContext context: Context) = context
